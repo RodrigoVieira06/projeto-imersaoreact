@@ -1,0 +1,20 @@
+{
+  "name": "projeto-imersaoreact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/RodrigoVieira06/projeto-imersaoreact.git",
+  "author": "RodrigoVieira06 <rodrigovlima06@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@skynexui/components": "^1.24.2",
+    "next": "^12.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
