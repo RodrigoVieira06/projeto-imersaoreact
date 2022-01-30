@@ -3,27 +3,9 @@ import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import React from 'react';
 import { useRouter } from 'next/router';
 
-function Titulo(props) {
-    const Tag = props.tag || 'h1';
-    return (
-        <>
-            <Tag>{props.children}</Tag>
-            <style jsx>{`
-                h2 {
-                    color: ${appConfig.theme.colors.neutrals[200]};
-                }
-
-                h4 {
-                    color: gray;
-                }
-            `}</style>
-        </>
-    )
-}
-
 export default function PaginaInicial() {
     //const username = 'RodrigoVieira06';
-    const [username, setUsername] = React.useState('');
+    const [username, setUsername] = React.useState('RodrigoVieira06');
     const roteamento = useRouter();
 
     return (
@@ -32,7 +14,7 @@ export default function PaginaInicial() {
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     backgroundColor: appConfig.theme.colors.neutrals[100],
-                    backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/07/blue-screen-of-death-in-windows-10-1536x864.jpg)',
+                    backgroundImage: 'url(https://steamuserimages-a.akamaihd.net/ugc/1792974219414330352/80533F1CA1E801B141FD0BED318F0C446E6808A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true)',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 }}
             >
@@ -63,8 +45,18 @@ export default function PaginaInicial() {
                             width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
                         }}
                     >
-                        <Titulo tag="h2">Bem vindo ao app!</Titulo>
-                        <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+                        {/* Título */}
+                        <Text variant='heading3' styleSheet={{
+                            marginBottom: '5px',
+                            color: appConfig.theme.colors.neutrals[100]
+                        }}>
+                            Bem vindo ao BatPapo!
+                        </Text>
+
+                        <Text variant="body3" styleSheet={{
+                            marginBottom: '32px',
+                            color: appConfig.theme.colors.neutrals[100]
+                        }}>
                             {appConfig.name}
                         </Text>
 
@@ -80,26 +72,28 @@ export default function PaginaInicial() {
                             value={username}
                             onChange={function (event) {
                                 const valor = event.target.value;
+                                console.log(event.target);
                                 setUsername(valor);
                             }}
                             fullWidth
                             textFieldColors={{
                                 neutral: {
-                                    textColor: appConfig.theme.colors.neutrals[200],
-                                    mainColor: appConfig.theme.colors.neutrals[900],
+                                    textColor: appConfig.theme.colors.neutrals[100],
+                                    mainColor: appConfig.theme.colors.primary[600],
+
                                     mainColorHighlight: appConfig.theme.colors.primary[500],
-                                    backgroundColor: appConfig.theme.colors.neutrals[800],
+                                    backgroundColor: appConfig.theme.colors.neutrals[600],
                                 },
                             }}
                         />
                         <Button
                             type='submit'
-                            label='Entrar'
+                            label='Bora lá'
                             fullWidth
                             buttonColors={{
-                                contrastColor: appConfig.theme.colors.neutrals["000"],
+                                contrastColor: appConfig.theme.colors.neutrals["100"],
                                 mainColor: appConfig.theme.colors.primary[500],
-                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorLight: appConfig.theme.colors.primary[100],
                                 mainColorStrong: appConfig.theme.colors.primary[600],
                             }}
                         />
