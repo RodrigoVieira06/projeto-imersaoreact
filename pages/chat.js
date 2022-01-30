@@ -73,15 +73,15 @@ export default function ChatPage() {
     return (
         <Box
             styleSheet={{
-                display: 'flex', 
-                alignItems: 'center', 
+                display: 'flex',
+                alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: appConfig.theme.colors.primary[500],
-                backgroundImage: 'url(https://steamuserimages-a.akamaihd.net/ugc/1792974219414330352/'+
-                '80533F1CA1E801B141FD0BED318F0C446E6808A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox'+
-                '&imcolor=%23000000&letterbox=true)',
-                backgroundRepeat: 'no-repeat', 
-                backgroundSize: 'cover', 
+                backgroundImage: 'url(https://steamuserimages-a.akamaihd.net/ugc/1792974219414330352/' +
+                    '80533F1CA1E801B141FD0BED318F0C446E6808A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox' +
+                    '&imcolor=%23000000&letterbox=true)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
                 backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -103,15 +103,15 @@ export default function ChatPage() {
                 <Header />
                 <Box
                     styleSheet={{
-                        display: 'flex'
+                        display: 'flex',
+                        justifyContent: 'space-around'
                     }}
                 >
                     <Box
                         styleSheet={{
                             position: 'absolute',
                             display: 'flex',
-                            flexGrow: 0,
-                            width: '90%',
+                            width: '85%',
                             height: '80%',
                             backgroundColor: appConfig.theme.colors.neutrals[901],
                             flexDirection: 'column',
@@ -189,8 +189,8 @@ function Header() {
     return (
         <>
             <Box styleSheet={{
-                width: '100%', 
-                marginBottom: '16px', 
+                width: '100%',
+                marginBottom: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between'
@@ -229,6 +229,8 @@ function MessageList(props) {
                         key={mensagem.id}
                         tag="li"
                         styleSheet={{
+                            display: "flex",
+                            flexDirection: "column",
                             borderRadius: '5px',
                             padding: '6px',
                             marginBottom: '12px',
@@ -266,20 +268,42 @@ function MessageList(props) {
                                 {(new Date().toLocaleDateString())}
                             </Text>
                         </Box>
-                        {/* [Declarativo] */}
-                        {/* Condicional: {mensagem.texto.startsWith(':sticker:').toString()} */}
-                        {mensagem.texto.startsWith(':sticker:')
-                            ? (
-                                <Image src={mensagem.texto.replace(':sticker:', '')} />
-                            )
-                            : (
-                                mensagem.texto
-                            )}
-                        {/* if mensagem de texto possui stickers:
-                           mostra a imagem
-                        else 
-                           mensagem.texto */}
-                        {/* {mensagem.texto} */}
+                        <Box
+                            styleSheet={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: 'center'
+                            }}
+                        >
+                            {mensagem.texto.startsWith(':sticker:')
+                                ? (
+                                    <Image
+                                        src={mensagem.texto.replace(':sticker:', '')}
+                                        styleSheet={{
+                                            width: "40%"
+                                        }}
+                                    />
+                                )
+                                : (
+                                    mensagem.texto
+                                )
+                            }
+                            <Button
+                                buttonColors={{
+                                    contrastColor: appConfig.theme.colors.secundary[100],
+                                    mainColor: appConfig.theme.colors.secundary[100],
+                                    mainColorLight: appConfig.theme.colors.secundary[100],
+                                    mainColorStrong: appConfig.theme.colors.secundary[100]
+                                }}
+                                variant="secondary"
+                                styleSheet={{
+                                    height: "10%",
+                                    width: "1%"
+                                }}
+                            >
+                            </Button>
+                        </Box>
                     </Text>
                 );
             })}
