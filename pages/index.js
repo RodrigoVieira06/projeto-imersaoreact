@@ -14,7 +14,8 @@ export default function PaginaInicial() {
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     backgroundColor: appConfig.theme.colors.neutrals[100],
-                    backgroundImage: 'url(https://steamuserimages-a.akamaihd.net/ugc/1792974219414330352/80533F1CA1E801B141FD0BED318F0C446E6808A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true)',
+                    backgroundImage: 'url(https://steamuserimages-a.akamaihd.net/ugc/1792974219414330352/'+
+                    '80533F1CA1E801B141FD0BED318F0C446E6808A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true)',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 }}
             >
@@ -38,7 +39,7 @@ export default function PaginaInicial() {
                         as="form"
                         onSubmit={function (infosDoEvento) {
                             infosDoEvento.preventDefault();
-                            roteamento.push('/chat');
+                            roteamento.push(`/chat?username=${username}`);
                         }}
                         styleSheet={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -50,7 +51,7 @@ export default function PaginaInicial() {
                             marginBottom: '5px',
                             color: appConfig.theme.colors.neutrals[100]
                         }}>
-                            Bem vindo ao BatPapo!
+                            Bem vindo ao BatPapo! 🦇
                         </Text>
 
                         <Text variant="body3" styleSheet={{
