@@ -31,7 +31,7 @@ export default function PaginaInicial() {
                         width: '100%', maxWidth: '700px',
                         borderRadius: '5px', padding: '32px', margin: '16px',
                         boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-                        backgroundColor: appConfig.theme.colors.neutrals[700],
+                        backgroundColor: appConfig.theme.colors.neutrals[701],
                     }}
                 >
                     {/* Formulário */}
@@ -42,8 +42,13 @@ export default function PaginaInicial() {
                             roteamento.push(`/chat?username=${username}`);
                         }}
                         styleSheet={{
-                            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                            width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            width: { xs: '100%', sm: '60%' }, 
+                            textAlign: 'center', 
+                            marginBottom: '32px',
                         }}
                     >
                         {/* Título */}
@@ -51,7 +56,7 @@ export default function PaginaInicial() {
                             marginBottom: '5px',
                             color: appConfig.theme.colors.neutrals[100]
                         }}>
-                            Bem vindo ao BatPapo! 🦇
+                            Bem vindo ao BatPapo! 🦇🦇🦇
                         </Text>
 
                         <Text variant="body3" styleSheet={{
@@ -60,15 +65,7 @@ export default function PaginaInicial() {
                         }}>
                             {appConfig.name}
                         </Text>
-
-                        {/* <input
-                            type="text"
-                            value={username}
-                            onChange={function (event) {
-                                const valor = event.target.value;
-                                setUsername(valor);
-                            }}
-                        /> */}
+                        
                         <TextField
                             value={username}
                             onChange={function (event) {
